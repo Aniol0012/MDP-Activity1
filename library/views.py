@@ -6,7 +6,7 @@ from library.models import Libro
 
 class BookListView(ListView):
     model = Libro
-    template_name = 'posts_list.html'
+    template_name = 'posts/posts_list.html'
     context_object_name = 'books'
 
 
