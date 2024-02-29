@@ -11,12 +11,12 @@ body {
 /* Headers styles */
 h1, h2, h3, h4, h5, h6 {
     color: #333;
-    margin-left: 20px;
+    margin-left: 60px;
 }
 
 p {
     font-size: 14px;
-    margin-left: 20px;
+    margin-left: 60px;
 }
 
 /* Navigation styles */
@@ -62,11 +62,24 @@ a:hover {
 /* Styles for the post boxes */
 .post {
     background-color: #ffffff;
-    border: 1px solid #ddd;
+    border: 1px solid #7c7575;
     margin-bottom: 20px;
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+}
+
+.post:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transform: scale(1.01);
+}
+
+#read-more {
+    display: block;
+    margin-top: -10px;
+    margin-left: 20px;
+    color: #1f1e1e;
 }
 
 .post h2 {
@@ -77,6 +90,12 @@ a:hover {
     color: #999;
     font-style: italic;
     margin-bottom: 20px;
+}
+
+.post-link {
+    text-decoration: none; /* Elimina el subratllat del enllaç */
+    color: inherit; /* Hereta el color del text del seu pare */
+    display: block; /* Fa que l'enllaç ocupi tot l'espai del post */
 }
 
 /* Buttons */
