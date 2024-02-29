@@ -16,13 +16,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from library.views import BookListView, book_detail, create_book, create_review
 
 urlpatterns = [
     path('contalt/', admin.site.urls),
-    path('', BookListView.as_view(), name='posts_list'),
-    path('books/<int:pk>/', book_detail, name='book_detail'),
-    path('books/create/', create_book, name='book_detail'),
-    path('books/<int:pk>/review/create/', create_review, name='review_create'),
-    path('/posts/', include('posts.urls')),
+    path('', include('posts.urls')),
 ]
