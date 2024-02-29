@@ -6,7 +6,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ('library', '0001_initial'),
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
@@ -16,11 +15,18 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Review',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.BigAutoField(auto_created=True,
+                                           primary_key=True,
+                                           serialize=False,
+                                           verbose_name='ID')),
                 ('content', models.TextField()),
                 ('score', models.IntegerField()),
-                ('book', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='library.libro')),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+                ('book', models.ForeignKey(on_delete=django.db.models.
+                                           deletion.CASCADE,
+                                           to='library.libro')),
+                ('user', models.ForeignKey(on_delete=django.db.
+                                           models.deletion.CASCADE,
+                                           to=settings.AUTH_USER_MODEL)),
             ],
         ),
     ]
