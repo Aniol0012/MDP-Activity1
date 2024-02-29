@@ -1,0 +1,158 @@
+/* General styles */
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    margin: 0px;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Headers styles */
+h1, h2, h3, h4, h5, h6 {
+    color: #333;
+    margin-left: 25%;
+    margin-right: 15%;
+}
+
+h1 {
+    font-size: 36px;
+    padding: 10px;
+}
+
+h2 {
+    padding: 5px;
+}
+
+p {
+    font-size: 14px;
+    margin-left: 50px;
+}
+
+/* Styles for the post boxes */
+.post {
+    background-color: #ffffff;
+    border: 1px solid #7c7575;
+    /*margin-bottom: 20px;*/
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin-left: 25%;
+    margin-right: 15%;
+}
+
+.post:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /*transform: scale(1.01);*/
+}
+
+.post h2 {
+    margin-top: 0;
+}
+
+.post-meta {
+    color: #999;
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+.post-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.post-link:hover {
+    text-decoration: underline;
+}
+
+.detail-post {
+    max-width: 1000px;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+/* Navigation styles */
+nav {
+    background-color: #09f;
+    color: #ffffff;
+    padding: 10px 15px;
+    font-size: 16px;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 10px;
+}
+
+nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #ffd700;
+    text-decoration: underline;
+}
+
+/* Links styles */
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+/* Buttons */
+button, .btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover, .btn:hover {
+    background-color: #0056b3;
+}
+
+/* Posts creation styles */
+form.post-form label {
+    display: block;
+    margin-top: 20px;
+}
+
+form.post-form input[type="text"],
+form.post-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+form.post-form input[type="submit"] {
+    display: inline-block;
+    width: auto;
+}
+
+/* Logo */
+.logo {
+    width: 50px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
