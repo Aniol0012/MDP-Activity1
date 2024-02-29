@@ -11,12 +11,54 @@ body {
 /* Headers styles */
 h1, h2, h3, h4, h5, h6 {
     color: #333;
-    margin-left: 60px;
+    margin-left: 25%;
+}
+
+h1 {
+    font-size: 36px;
+    padding: 10px;
+}
+
+h2 {
+    padding: 5px;
 }
 
 p {
     font-size: 14px;
-    margin-left: 60px;
+    margin-left: 50px;
+}
+
+/* Styles for the post boxes */
+.post {
+    background-color: #ffffff;
+    border: 1px solid #7c7575;
+    /*margin-bottom: 20px;*/
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin-left: 25%;
+}
+
+.post:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /*transform: scale(1.01);*/
+}
+
+.post h2 {
+    margin-top: 0;
+}
+
+.post-meta {
+    color: #999;
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+.post-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
 }
 
 /* Navigation styles */
@@ -57,45 +99,6 @@ a {
 a:hover {
     color: #0056b3;
     text-decoration: underline;
-}
-
-/* Styles for the post boxes */
-.post {
-    background-color: #ffffff;
-    border: 1px solid #7c7575;
-    margin-bottom: 20px;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    max-width: 800px;
-}
-
-.post:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transform: scale(1.01);
-}
-
-#read-more {
-    display: block;
-    margin-top: -10px;
-    margin-left: 20px;
-    color: #1f1e1e;
-}
-
-.post h2 {
-    margin-top: 0;
-}
-
-.post-meta {
-    color: #999;
-    font-style: italic;
-    margin-bottom: 20px;
-}
-
-.post-link {
-    text-decoration: none; /* Elimina el subratllat del enllaç */
-    color: inherit; /* Hereta el color del text del seu pare */
-    display: block; /* Fa que l'enllaç ocupi tot l'espai del post */
 }
 
 /* Buttons */

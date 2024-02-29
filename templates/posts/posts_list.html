@@ -12,7 +12,6 @@
     {% for post in posts %}
         <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
         <p class="post">{{ post.short_content }}</p>
-        <a id="read-more" href="{% url 'post_detail' pk=post.pk %}">Read more</a>
     {% empty %}
         <p>No posts yet.</p>
     {% endfor %}
