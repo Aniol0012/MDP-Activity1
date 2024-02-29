@@ -11,7 +11,7 @@
     <h1>Posts</h1>
     {% for post in posts %}
         <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
-        <p>{{ post.content|truncatechars:200 }}</p>
+        <p>{{ post.content|truncatechars:150 }}</p>
     {% empty %}
         <p>No posts yet.</p>
     {% endfor %}

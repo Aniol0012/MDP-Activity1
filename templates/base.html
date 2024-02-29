@@ -3,10 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}{% endblock %} - My Library</title></head>
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'posts/style.css' %}">
+
 <body>
 <nav>
     <ul>
-        <li><a href="{% url 'posts_list' %}">Inicio</a></li>
+        <li><a href="{% url 'posts_list' %}">Home</a></li>
+        <li>
+            <a>
+                <img class="logo" src="{% static 'posts/assets/logo.svg' %}"
+                     alt="Logo">
+            </a>
+        </li>
     </ul>
 </nav>
 {% block content %} {% endblock %}
