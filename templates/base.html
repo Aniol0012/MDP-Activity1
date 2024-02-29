@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %} - My Library</title></head>
+<body>
+<nav>
+    <ul>
+        <li><a href="{% url 'posts_list' %}">Inicio</a></li>
+        <li><a href="{% url 'create_book' %}">Añadir libro</a></li>
+        {% if user.is_authenticated %}
+        <li><a href="{% url 'logout' %}">Cerrar sesión</a></li>
+        {% else %}
+        <li><a href="{% url 'login' %}">Iniciar sesión</a></li>
+        <li><a href="{% url 'signup' %}">Registrarse</a></li>
+        {% endif %}
+    </ul>
+</nav>
+{% block content %} {% endblock %}
+</body>
+</html>
