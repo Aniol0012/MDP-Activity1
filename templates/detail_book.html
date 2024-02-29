@@ -1,0 +1,9 @@
+<h1>{{ book.title }}</h1>
+<p>Autor: {{ book.author }}</p>
+<p>Género: {{ book.genre }}</p>
+<p>Número de páginas: {{ book.pages }}</p>
+<h2>Comentarios</h2>
+{% for review in book.review_set.all %}
+ <p>{{ review.content }}</p>
+ <p>Escrito por {{ review.user.username }}</p>
+{% endfor %}
