@@ -4,7 +4,7 @@ _This is a simple blog web application created with Django._
 
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/django?style=plastic)
 [![Django](https://img.shields.io/badge/django-5.0.2-green.svg?style=plastic)](https://djangoproject.com)
-![Flake8](https://img.shields.io/badge/flake8-checked-blueviolet?style=plastic)
+![Flake8](https://img.shields.io/badge/flake8-7.0.0-blueviolet?style=plastic)
 ![Licence](https://img.shields.io/github/license/Aniol0012/MDP-Activity1?style=plastic&color=red)
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/Aniol0012/MDP-Activity1?style=plastic&color=lightgreen)
