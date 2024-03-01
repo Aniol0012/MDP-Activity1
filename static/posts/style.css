@@ -45,7 +45,6 @@ p {
 
 .post:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    /*transform: scale(1.01);*/
 }
 
 .post h2 {
@@ -84,8 +83,15 @@ p {
 }
 
 .comment-btn {
-    margin-left: 25%;
-    margin-right: 15%;
+    position: relative;
+    left: 5%;
+    bottom: 10px;
+    width: 345px;
+    transition: color 0.3s ease;
+}
+
+.comment-btn:hover {
+    color: #ffd700;
 }
 
 .center-form {
