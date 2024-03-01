@@ -3,7 +3,7 @@ body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     margin: 0px;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color: #f1f1f1;
     color: #333;
     line-height: 1.6;
 }
@@ -26,7 +26,8 @@ h2 {
 
 p {
     font-size: 14px;
-    margin-left: 50px;
+    margin-left: 5%;
+
 }
 
 /* Styles for the post boxes */
@@ -70,6 +71,15 @@ p {
 .detail-post {
     max-width: 1000px;
     margin-left: 15%;
+    margin-right: 15%;
+}
+
+.comment {
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    padding: 5px;
+    max-width: 600px;
+    margin-left: 25%;
     margin-right: 15%;
 }
 

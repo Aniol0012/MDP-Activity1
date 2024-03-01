@@ -13,6 +13,32 @@
     <p class="detail-post">Last modified: {{ post.modified_at }}</p>
     <p class="detail-post">Author: {{ post.author }}</p>
     <p class="detail-post">{{ post.content }}</p>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        {% if form.errors %}
+            <p>Your comment could not be created because:</p>
+            <ul>
+                {% for field in form %}
+                    {% for error in field.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                {% endfor %}
+            </ul>
+        {% endif %}
+        <button type="submit">Submit comment</button>
+    </form>
+
+    <h3>Comments</h3>
+    {% for comment in comments %}
+        <div class="comment">
+            <p><strong>{{ comment.author }}</strong></p>
+            <p>{{ comment.content }}</p>
+            <p style="color: gray">Commented at: {{ comment.created_at }}</p>
+        </div>
+    {% endfor %}
+
 {% endblock %}
 </body>
 </html>
