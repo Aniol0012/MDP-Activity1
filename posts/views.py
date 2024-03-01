@@ -1,8 +1,9 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import Post
 from django.db.models.functions import Substr
 from django.db.models import Value as V
 from django.db.models.functions import Concat
+from posts.forms import CommentForm
 
 
 def post_list(request):
@@ -13,4 +14,18 @@ def post_list(request):
 
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
-    return render(request, 'posts/post_detail.html', {'post': post})
+    comments = post.comment_set.all()
+    if request.method == "POST":
+        if not request.user.is_authenticated:
+            return redirect('login')
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.author = request.user
+            comment.post = post
+            comment.save()
+            return redirect('post_detail', pk=post.pk)
+    else:
+        form = CommentForm()
+    return render(request, 'posts/post_detail.html',
+                  {'post': post, 'form': form, 'comments': comments})
