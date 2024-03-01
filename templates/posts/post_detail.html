@@ -9,10 +9,10 @@
 
 {% block content %}
     <h2 class="detail-post">{{ post.title }}</h2>
-    <p class="detail-post">Created at: {{ post.created_at }}</p>
-    <p class="detail-post">Last modified: {{ post.modified_at }}</p>
-    <p class="detail-post">Author: {{ post.author }}</p>
-    <p class="detail-post">{{ post.content }}</p>
+    <p class="detail-post"><strong>Author:</strong> {{ post.author }}</p>
+    <p class="detail-post"><strong>Created at:</strong> {{ post.created_at }}</p>
+    <p class="detail-post" id="detail-post-content">{{ post.content }}</p>
+    <p class="detail-post"><strong>Last modified:</strong> {{ post.modified_at }}</p>
 
     <div class="center-form">
         <form method="post">

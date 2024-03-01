@@ -73,6 +73,13 @@ p {
     margin-right: 15%;
 }
 
+#detail-post-content {
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    background-color: #ffffff;
+}
+
 .comment {
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
@@ -80,14 +87,17 @@ p {
     max-width: 600px;
     margin-left: 25%;
     margin-right: 15%;
+    background-color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 10px;
 }
 
 .comment-btn {
     position: relative;
-    left: 5%;
+    left: 25%;
     bottom: 10px;
-    width: 345px;
+    width: 200px;
     transition: color 0.3s ease;
+    margin-left: 30%;
 }
 
 .comment-btn:hover {
@@ -100,6 +110,7 @@ p {
     align-items: center;
     flex-direction: column;
     height: 30vh;
+    margin-left: -25%;
 }
 
 .center-form form {
@@ -112,8 +123,8 @@ p {
 
 textarea {
     resize: none;
+    width: 160%;
 }
-
 
 /* Navigation styles */
 nav {
