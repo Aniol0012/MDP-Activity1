@@ -26,6 +26,5 @@ def post_detail(request, pk):
             return redirect('post_detail', pk=post.pk)
     else:
         form = CommentForm()
-    return render(request, 'posts/post_detail.html', {'post': post, 'form': form, 'comments': comments})
-
-
+    return render(request, 'posts/post_detail.html',
+                  {'post': post, 'form': form, 'comments': comments})

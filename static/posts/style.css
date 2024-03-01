@@ -83,6 +83,33 @@ p {
     margin-right: 15%;
 }
 
+.comment-btn {
+    margin-left: 25%;
+    margin-right: 15%;
+}
+
+.center-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 30vh;
+}
+
+.center-form form {
+    resize: none;
+    min-width: 100px;
+    min-height: 100px;
+    max-width: 400px;
+    max-height: 300px;
+}
+
+textarea {
+    resize: none;
+}
+
+
+
 /* Navigation styles */
 nav {
     background-color: #09f;

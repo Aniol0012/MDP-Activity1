@@ -14,6 +14,7 @@
     <p class="detail-post">Author: {{ post.author }}</p>
     <p class="detail-post">{{ post.content }}</p>
 
+    <div class="center-form">
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
@@ -27,8 +28,9 @@
                 {% endfor %}
             </ul>
         {% endif %}
-        <button type="submit">Submit comment</button>
+        <button class="comment-btn" type="submit">Comment</button>
     </form>
+    </div>
 
     <h3>Comments</h3>
     {% for comment in comments %}
