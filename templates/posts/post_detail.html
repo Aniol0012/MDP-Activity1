@@ -15,24 +15,25 @@
     <p class="detail-post">{{ post.content }}</p>
 
     <div class="center-form">
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        {% if form.errors %}
-            <p>Your comment could not be created because:</p>
-            <ul>
-                {% for field in form %}
-                    {% for error in field.errors %}
-                        <li>{{ error }}</li>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            {% if form.errors %}
+                <p>Your comment could not be created because:</p>
+                <ul>
+                    {% for field in form %}
+                        {% for error in field.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
                     {% endfor %}
-                {% endfor %}
-            </ul>
-        {% endif %}
-        <button class="comment-btn" type="submit">Comment</button>
-    </form>
+                </ul>
+            {% endif %}
+            <button class="comment-btn" type="submit">Comment</button>
+        </form>
     </div>
 
-    <h3>Comments</h3>
+    <h3>Comments <a href="?order=asc" class="sort-arrows" style="margin:5px 5px">↑</a><a href="?order=desc"
+                                                                                         class="sort-arrows">↓</a></h3>
     {% for comment in comments %}
         <div class="comment">
             <p><strong>{{ comment.author }}</strong></p>

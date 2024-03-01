@@ -14,7 +14,8 @@ def post_list(request):
 
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
-    comments = post.comment_set.all().order_by('-created_at')
+    order = request.GET.get('order', 'desc')
+    comments = post.comment_set.all().order_by(f'{"-" if order == "desc" else ""}created_at')
     if request.method == "POST":
         if not request.user.is_authenticated:
             return redirect('login')

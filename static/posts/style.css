@@ -115,7 +115,6 @@ textarea {
 }
 
 
-
 /* Navigation styles */
 nav {
     background-color: #09f;
@@ -154,6 +153,15 @@ a {
 a:hover {
     color: #0056b3;
     text-decoration: underline;
+}
+
+a.sort-arrows {
+    transition: color 0.3s ease;
+}
+
+a.sort-arrows:hover {
+    color: #ffd700;
+    text-decoration: none;
 }
 
 /* Buttons */
