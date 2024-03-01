@@ -16,7 +16,8 @@ def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
     comments = post.comment_set.all()
     if request.method == "POST":
-        # TODO: Make submit content available and only for logged in users
+        if not request.user.is_authenticated:
+            return redirect('login')
         form = CommentForm(request.POST)
         if form.is_valid():
             comment = form.save(commit=False)
