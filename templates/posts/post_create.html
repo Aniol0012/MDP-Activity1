@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create post</title>
+</head>
+<body>
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2 style="margin-left: 5%">New post</h2>
+  <form method="POST">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit" style="margin-left: 5%">Create</button>
+  </form>
+{% endblock %}
+</body>
+</html>

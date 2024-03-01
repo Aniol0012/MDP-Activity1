@@ -4,6 +4,7 @@ from django.db.models.functions import Substr
 from django.db.models import Value as V
 from django.db.models.functions import Concat
 from posts.forms import CommentForm
+from posts.forms import PostForm
 
 
 def post_list(request):
@@ -30,3 +31,16 @@ def post_detail(request, pk):
         form = CommentForm()
     return render(request, 'posts/post_detail.html',
                   {'post': post, 'form': form, 'comments': comments})
+
+
+def post_create(request):
+    if request.method == "POST":
+        form = PostForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.author = request.user
+            post.save()
+            return redirect('post_detail', pk=post.pk)
+    else:
+        form = PostForm()
+    return render(request, 'posts/post_create.html', {'form': form})
