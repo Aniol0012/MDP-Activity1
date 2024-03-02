@@ -258,3 +258,17 @@ form.post-form input[type="submit"] {
     color: #ffffff;
 }
 
+.create-btn {
+    position: relative;
+    left: 64%;
+    bottom: 10px;
+    width: 150px;
+    min-width: 100px;
+    text-align: center;
+    transition: color 0.3s ease;
+    margin-right: 30%;
+}
+.create-btn:hover {
+    color: #ffd700;
+}
+
