@@ -20,6 +20,7 @@ module.exports = {
         "security",
         "changeset",
         "init",
+        "other",
       ],
     ],
     "subject-full-stop": [0, "never"],

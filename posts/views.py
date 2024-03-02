@@ -74,7 +74,8 @@ def post_edit(request, pk):
             return redirect('post_detail', pk=post.pk)
     else:
         form = PostForm(instance=post)
-    return render(request, 'posts/post_edit.html', {'form': form, 'post': post})
+    return render(request, 'posts/post_edit.html',
+                  {'form': form, 'post': post})
 
 
 def signup(request):

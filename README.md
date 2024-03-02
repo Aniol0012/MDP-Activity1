@@ -54,6 +54,10 @@ python manage.py runserver
 http://localhost:8000/
 ```
 
+## Contributing
+
+To contribute to this project go to the [CONTRIBUTING.md](./CONTRIBUTING.md) file.
+
 ## License
 
 This project is under [MIT Licence](https://opensource.org/license/mit/) - see the [LICENCE](./LICENSE) file for
