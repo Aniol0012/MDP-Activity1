@@ -2,7 +2,7 @@ name: Conventional Commits Check
 
 on:
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   commit-lint:

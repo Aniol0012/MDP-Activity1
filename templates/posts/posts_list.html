@@ -1,44 +1,47 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Posts</title>
     <style>
-        .create-btn {
-            background-color: #007bff;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            text-decoration: none;
-            display: inline-block;
-            transition: color 0.3s ease;
-        }
+      .create-btn {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        text-decoration: none;
+        display: inline-block;
+        transition: color 0.3s ease;
+      }
 
-        .create-btn:hover {
-            color: #ffd700;
-            text-decoration: none;
-        }
+      .create-btn:hover {
+        color: #ffd700;
+        text-decoration: none;
+      }
     </style>
-</head>
-<body>
-{% extends "base.html" %}
-
-{% block content %}
-    <h1>Posts
-        {% if user.is_authenticated %}
-            <a href="{% url 'post_create' %}" class="create-btn" style=" font-weight: normal">Create
-                new post</a>
-        {% endif %}
+  </head>
+  <body>
+    {% extends "base.html" %} {% block content %}
+    <h1>
+      Posts {% if user.is_authenticated %}
+      <a
+        href="{% url 'post_create' %}"
+        class="create-btn"
+        style="font-weight: normal"
+        >Create new post</a
+      >
+      {% endif %}
     </h1>
     {% for post in posts %}
-        <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
-        <p class="post" style="background-color: white; color: #3d3d3d">{{ post.short_content }}</p>
+    <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
+    <p class="post" style="background-color: white; color: #3d3d3d">
+      {{ post.short_content }}
+    </p>
     {% empty %}
-        <p>No posts yet.</p>
-    {% endfor %}
-{% endblock %}
-</body>
+    <p>No posts yet.</p>
+    {% endfor %} {% endblock %}
+  </body>
 </html>
