@@ -38,7 +38,7 @@
     {% for post in posts %}
     <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
     <p class="post" style="background-color: white; color: #3d3d3d">
-      {{ post.short_content }}
+      {{ post.content_html|safe|truncatewords:70}}
     </p>
     {% empty %}
     <p>No posts yet.</p>
