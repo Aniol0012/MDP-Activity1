@@ -1,9 +1,10 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils.safestring import mark_safe
 
 
 class Post(models.Model):
-    title = models.CharField(max_length=20, blank=False, null=False)
+    title = models.CharField(max_length=70, blank=False, null=False)
     content = models.TextField(max_length=2000, blank=False, null=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -11,6 +12,9 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+    def content_html(self):
+        return mark_safe(self.content)
 
 
 class Comment(models.Model):

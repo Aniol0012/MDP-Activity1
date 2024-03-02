@@ -16,7 +16,7 @@
       >Edit post</a
     >
     {% endif %}
-    <p class="detail-post" id="detail-post-content">{{ post.content }}</p>
+    <p class="detail-post" id="detail-post-content">{{ post.content_html|safe }}</p>
 
     <p class="detail-post">
       <strong>Last modified:</strong> {{ post.updated_at }}
