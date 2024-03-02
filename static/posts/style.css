@@ -102,6 +102,7 @@ p {
 
 .comment-btn:hover {
     color: #ffd700;
+    text-decoration: none;
 }
 
 .center-form {
@@ -186,10 +187,6 @@ button, .btn {
     font-size: 16px;
 }
 
-button:hover, .btn:hover {
-    background-color: #0056b3;
-}
-
 /* Posts creation styles */
 form.post-form label {
     display: block;
@@ -218,3 +215,9 @@ form.post-form input[type="submit"] {
     top: 10px;
     right: 10px;
 }
+
+.btn:hover {
+    background-color: #ff0000;
+    color: #ffffff;
+}
+

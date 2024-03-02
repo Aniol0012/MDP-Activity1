@@ -4,18 +4,22 @@ from django.db.models.functions import Substr
 from django.db.models import Value as V
 from django.db.models.functions import Concat
 from posts.forms import CommentForm
+from posts.forms import PostForm
 
 
 def post_list(request):
+    """Show the list of posts."""
     posts = Post.objects.all().annotate(short_content=Concat(
         Substr('content', 1, 200), V('...')))
     return render(request, 'posts/posts_list.html', {'posts': posts})
 
 
 def post_detail(request, pk):
+    """Show the details of a post."""
     post = get_object_or_404(Post, pk=pk)
     order = request.GET.get('order', 'desc')
-    comments = post.comment_set.all().order_by(f'{"-" if order == "desc" else ""}created_at')
+    comments = post.comment_set.all().order_by(
+        f'{"-" if order == "desc" else ""}created_at')
     if request.method == "POST":
         if not request.user.is_authenticated:
             return redirect('login')
@@ -30,3 +34,19 @@ def post_detail(request, pk):
         form = CommentForm()
     return render(request, 'posts/post_detail.html',
                   {'post': post, 'form': form, 'comments': comments})
+
+
+def post_create(request):
+    """Create a new post."""
+    if not request.user.is_authenticated:
+        return redirect('login')
+    if request.method == "POST":
+        form = PostForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.author = request.user
+            post.save()
+            return redirect('post_detail', pk=post.pk)
+    else:
+        form = PostForm()
+    return render(request, 'posts/post_create.html', {'form': form})
