@@ -102,6 +102,7 @@ p {
 
 .comment-btn:hover {
     color: #ffd700;
+    text-decoration: none;
 }
 
 .center-form {
@@ -184,10 +185,6 @@ button, .btn {
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
-}
-
-button:hover, .btn:hover {
-    background-color: #ffd700;
 }
 
 /* Posts creation styles */
