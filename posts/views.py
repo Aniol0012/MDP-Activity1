@@ -91,3 +91,12 @@ def signup(request):
     else:
         form = SignUpForm()
     return render(request, 'registration/signup.html', {'form': form})
+
+
+def like_post(request, post_id):
+    """Like a post."""
+    if not request.user.is_authenticated:
+        return redirect('login')
+    post = get_object_or_404(Post, pk=post_id)
+    post.like_set.get_or_create(user=request.user)
+    return redirect(request.META.get('HTTP_REFERER', 'posts_list'))

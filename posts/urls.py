@@ -8,4 +8,5 @@ urlpatterns = [
     path('dark-mode/', views.dark_mode, name='dark_mode'),
     path('post/<int:pk>/edit/', views.post_edit, name='post_edit'),
     path('signup/', views.signup, name='signup'),
+    path('like_post/<int:post_id>/', views.like_post, name='like_post'),
 ]

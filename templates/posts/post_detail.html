@@ -23,6 +23,14 @@
     <p class="detail-post">
       <strong>Last modified:</strong> {{ post.updated_at }}
     </p>
+
+    <p class="detail-post"><strong>Likes:</strong> {{ post.like_set.count }}</p>
+    <form method="post" action="{% url 'like_post' post.id %}">
+      {% csrf_token %}
+      <input type="hidden" name="post_id" value="{{ post.id }}" />
+      <button class="detail-post btn" type="submit">Like</button>
+    </form>
+
     <div class="center-form">
       <form method="post">
         {% csrf_token %} {{ form.as_p }} {% if form.errors %}
