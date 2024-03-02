@@ -31,8 +31,12 @@ def post_detail(request, pk):
             return redirect('post_detail', pk=post.pk)
     else:
         form = CommentForm()
+    dark_mode = 'dark_mode' if 'dark_mode' in request.session else 'light_mode'
     return render(request, 'posts/post_detail.html',
-                  {'post': post, 'form': form, 'comments': comments})
+                  {'post': post,
+                   'form': form,
+                   'comments': comments,
+                   'theme': dark_mode})
 
 
 def post_create(request):

@@ -16,7 +16,9 @@
       >Edit post</a
     >
     {% endif %}
-    <p class="detail-post" id="detail-post-content">{{ post.content }}</p>
+    <p class="detail-post" id="detail-post-content">
+      {{ post.content_html|safe }}
+    </p>
 
     <p class="detail-post">
       <strong>Last modified:</strong> {{ post.updated_at }}
@@ -44,7 +46,11 @@
     <div class="comment">
       <p><strong>{{ comment.author }}</strong></p>
       <p>{{ comment.content }}</p>
+      {% if theme == 'dark_mode' %}
+      <p style="color: white">Commented at: {{ comment.created_at }}</p>
+      {% else %}
       <p style="color: gray">Commented at: {{ comment.created_at }}</p>
+      {% endif %}
     </div>
     {% endfor %} {% endblock %}
   </body>
