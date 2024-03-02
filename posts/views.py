@@ -50,3 +50,12 @@ def post_create(request):
     else:
         form = PostForm()
     return render(request, 'posts/post_create.html', {'form': form})
+
+
+def dark_mode(request):
+    """Enable dark mode."""
+    if 'dark_mode' in request.session:
+        del request.session['dark_mode']
+    else:
+        request.session['dark_mode'] = True
+    return redirect(request.META.get('HTTP_REFERER', 'post_list'))
