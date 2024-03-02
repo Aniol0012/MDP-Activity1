@@ -6,15 +6,16 @@
   </head>
   <body>
     {% extends "base.html" %} {% block content %}
-    <h2 class="detail-post">{{ post.title }}</h2>
+    <h2 class="detail-post" id="detail-post-title">{{ post.title }}</h2>
     <p class="detail-post"><strong>Author:</strong> {{ post.author }}</p>
     <p class="detail-post">
       <strong>Created at:</strong> {{ post.created_at }}
     </p>
     <p class="detail-post" id="detail-post-content">{{ post.content }}</p>
+    <!--
     <p class="detail-post">
       <strong>Last modified:</strong> {{ post.modified_at }}
-    </p>
+    </p>-->
 
     <div class="center-form">
       <form method="post">
