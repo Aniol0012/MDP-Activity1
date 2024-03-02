@@ -12,7 +12,9 @@
       <strong>Created at:</strong> {{ post.created_at }}
     </p>
     {% if user == post.author %}
-    <a href="{% url 'post_edit' post.id %}" class="btn" style="margin-left: 15%;">Edit post</a>
+    <a href="{% url 'post_edit' post.id %}" class="btn" style="margin-left: 15%"
+      >Edit post</a
+    >
     {% endif %}
     <p class="detail-post" id="detail-post-content">{{ post.content }}</p>
 

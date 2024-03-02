@@ -12,7 +12,7 @@
   <body>
     {% extends "base.html" %} {% block content %}
     <h2 style="text-align: center; margin-left: 15%">Sign up</h2>
-    <form style="max-width: 500px; margin: auto;" method="post">
+    <form style="max-width: 500px; margin: auto" method="post">
       {% csrf_token %} {{ form.as_p }}
       <button type="submit" class="btn" style="margin-left: 5%">Sign up</button>
     </form>

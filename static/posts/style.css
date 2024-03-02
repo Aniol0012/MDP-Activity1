@@ -1,16 +1,52 @@
 /* General styles */
+
+:root {
+    --primary-color: #007bff;
+    --secondary-color: #6c757d;
+    --success-color: #28a745;
+    --info-color: #17a2b8;
+    --warning-color: #ffc107;
+    --danger-color: #dc3545;
+    --light-color: #f1f1f1;
+    --dark-color: #333;
+    --link-color: #007bff;
+    --btn-hover-color: #ffd700;
+    --link-hover-color: var(--btn-hover-color);
+    --link-hover-text-decoration: none;
+    --btn-primary-bg: #007bff;
+    --btn-secondary-bg: #6c757d;
+    --btn-info-bg: #17a2b8;
+    --btn-success-bg: #28a745;
+    --btn-warning-bg: #ffc107;
+    --btn-danger-bg: #dc3545;
+    --btn-link-color: #007bff;
+    --btn-link-hover-color: #0056b3;
+    --btn-padding-y: 0.75rem;
+    --btn-padding-x: 1.5rem;
+    --btn-font-size: 1rem;
+    --btn-border-radius: 0.25rem;
+    --input-padding-y: 0.75rem;
+    --input-padding-x: 1.5rem;
+    --input-font-size: 1rem;
+    --input-border-radius: 0.25rem;
+    --input-border-color: #ced4da;
+    --input-border-color-focus: #80bdff;
+    --input-box-shadow-focus: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    --input-color: #495057;
+    --input-bg: #fff;
+    --input-bg-disabled: #e9ecef;
+    --input-color-disabled: #6c757d;
+    --input-bg-readonly: #e9ecef;
+    --input-color-readonly: #495057;
+}
+
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f1f1f1;
-  color: #333;
+  background-color: var(--light-color);
+  color: var(--dark-color);
   line-height: 1.6;
-}
-
-body.light-mode {
-  background-color: #f1f1f1;
-  color: black;
 }
 
 body.light-mode h1,
@@ -20,12 +56,12 @@ body.light-mode h4,
 body.light-mode h5,
 body.light-mode h6,
 body.light-mode p {
-  color: #333;
+  color: var(--dark-color);
 }
 
 body.dark-mode {
-  background-color: #3d3d3d;
-  color: white;
+  background-color: var(--dark-color);
+  color: var(--light-color);
 }
 
 body.dark-mode h1,
@@ -35,22 +71,22 @@ body.dark-mode h4,
 body.dark-mode h5,
 body.dark-mode h6,
 body.dark-mode p {
-  color: #ffffff;
+  color: var(--light-color);
 }
 
 body.light-mode .post {
-  background-color: #ffffff;
-  color: #333;
+  background-color: var(--light-color);
+  color: var(--dark-color);
 }
 
 body.dark-mode .post {
-  background-color: #3d3d3d;
-  color: #ffffff;
+  background-color: var(--dark-color);
+  color: var(--light-color);
 }
 
 body.dark-mode #detail-post-content {
   background-color: #fff;
-  color: #3d3d3d;
+  color: var(--dark-color);
 }
 
 /* Headers styles */
@@ -60,7 +96,7 @@ h3,
 h4,
 h5,
 h6 {
-  color: #333;
+  color: var(--dark-color);
   margin-left: 25%;
   margin-right: 15%;
 }
@@ -81,7 +117,7 @@ p {
 
 /* Styles for the post boxes */
 .post {
-  background-color: #ffffff;
+  background-color: var(--light-color);
   border: 1px solid #7c7575;
   /*margin-bottom: 20px;*/
   padding: 20px;
@@ -107,13 +143,13 @@ p {
 }
 
 .post-link {
-  text-decoration: none;
+  text-decoration: var(--link-hover-text-decoration);
   color: inherit;
   display: block;
 }
 
 .post-link:hover {
-  text-decoration: underline;
+  text-decoration: var(--link-hover-text-decoration);
 }
 
 .detail-post {
@@ -158,8 +194,8 @@ p {
 }
 
 .comment-btn:hover {
-  color: #ffd700;
-  text-decoration: none;
+  color: var(--btn-hover-color);
+  text-decoration: var(--link-hover-text-decoration);
 }
 
 .center-form {
@@ -204,24 +240,24 @@ nav ul li {
 
 nav ul li a {
   color: #ffffff;
-  text-decoration: none;
+  text-decoration: var(--link-hover-text-decoration);
   transition: color 0.3s ease;
 }
 
 nav ul li a:hover {
-  color: #ffd700;
-  text-decoration: underline;
+  color: var(--link-hover-color);
+  text-decoration: var(--link-hover-text-decoration);
 }
 
 /* Links styles */
 a {
-  color: #007bff;
+  color: var(--link-color);
   text-decoration: none;
 }
 
 a:hover {
   color: #0056b3;
-  text-decoration: underline;
+  text-decoration: var(--link-hover-text-decoration);
 }
 
 a.sort-arrows {
@@ -229,14 +265,14 @@ a.sort-arrows {
 }
 
 a.sort-arrows:hover {
-  color: #ffd700;
+  color: var(--link-hover-color);
   text-decoration: none;
 }
 
 /* Buttons */
 button,
 .btn {
-  background-color: #007bff;
+  background-color: var(--btn-primary-bg);
   color: white;
   border: none;
   padding: 10px 20px;
@@ -279,7 +315,7 @@ form.post-form input[type="submit"] {
 }
 
 .btn:hover {
-  color: #ffd700;
+  color: var(--btn-hover-color);
   text-decoration: none;
 }
 
