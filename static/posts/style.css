@@ -93,7 +93,7 @@ p {
 }
 
 .post:hover {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .post h2 {
@@ -138,6 +138,10 @@ p {
   margin-right: 15%;
   background-color: rgba(255, 255, 255, 0.5);
   margin-bottom: 10px;
+}
+
+.comment:hover{
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .comment-btn {
@@ -329,7 +333,7 @@ input[type="password"]:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 30vh;
+  height: 50vh;
   width: 300px;
   margin: auto;
 }
