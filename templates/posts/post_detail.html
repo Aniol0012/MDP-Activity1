@@ -1,47 +1,51 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Post details</title>
-</head>
-<body>
-{% extends "base.html" %}
-
-{% block content %}
-    <h2 class="detail-post">{{ post.title }}</h2>
+  </head>
+  <body>
+    {% extends "base.html" %} {% block content %}
+    <h2 class="detail-post" id="detail-post-title">{{ post.title }}</h2>
     <p class="detail-post"><strong>Author:</strong> {{ post.author }}</p>
-    <p class="detail-post"><strong>Created at:</strong> {{ post.created_at }}</p>
+    <p class="detail-post">
+      <strong>Created at:</strong> {{ post.created_at }}
+    </p>
+    {% if user == post.author %}
+    <a href="{% url 'post_edit' post.id %}" class="btn" style="margin-left: 15%"
+      >Edit post</a
+    >
+    {% endif %}
     <p class="detail-post" id="detail-post-content">{{ post.content }}</p>
-    <p class="detail-post"><strong>Last modified:</strong> {{ post.modified_at }}</p>
 
+    <p class="detail-post">
+      <strong>Last modified:</strong> {{ post.updated_at }}
+    </p>
     <div class="center-form">
-        <form method="post">
-            {% csrf_token %}
-            {{ form.as_p }}
-            {% if form.errors %}
-                <p>Your comment could not be created because:</p>
-                <ul>
-                    {% for field in form %}
-                        {% for error in field.errors %}
-                            <li>{{ error }}</li>
-                        {% endfor %}
-                    {% endfor %}
-                </ul>
-            {% endif %}
-            <button class="comment-btn" type="submit">Comment</button>
-        </form>
+      <form method="post">
+        {% csrf_token %} {{ form.as_p }} {% if form.errors %}
+        <p>Your comment could not be created because:</p>
+        <ul>
+          {% for field in form %} {% for error in field.errors %}
+          <li>{{ error }}</li>
+          {% endfor %} {% endfor %}
+        </ul>
+        {% endif %}
+        <button class="comment-btn" type="submit">Comment</button>
+      </form>
     </div>
 
-    <h3>Comments <a href="?order=asc" class="sort-arrows" style="margin:5px 5px">↑</a><a href="?order=desc"
-                                                                                         class="sort-arrows">↓</a></h3>
+    <h3>
+      Comments
+      <a href="?order=asc" class="sort-arrows" style="margin: 5px 5px">↑</a
+      ><a href="?order=desc" class="sort-arrows">↓</a>
+    </h3>
     {% for comment in comments %}
-        <div class="comment">
-            <p><strong>{{ comment.author }}</strong></p>
-            <p>{{ comment.content }}</p>
-            <p style="color: gray">Commented at: {{ comment.created_at }}</p>
-        </div>
-    {% endfor %}
-
-{% endblock %}
-</body>
+    <div class="comment">
+      <p><strong>{{ comment.author }}</strong></p>
+      <p>{{ comment.content }}</p>
+      <p style="color: gray">Commented at: {{ comment.created_at }}</p>
+    </div>
+    {% endfor %} {% endblock %}
+  </body>
 </html>
