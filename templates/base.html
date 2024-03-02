@@ -2,12 +2,12 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %}{% endblock %} - My Library</title></head>
+    <title>{% block title %}{% endblock %}Posts</title></head>
 {% load static %}
 
 <link rel="stylesheet" type="text/css" href="{% static 'posts/style.css' %}">
 
-<body>
+<body class="{% if 'dark_mode' in request.session %}dark-mode{% else %}light-mode{% endif %}">
 <nav>
     <ul>
         <li><a href="{% url 'posts_list' %}">Home</a></li>
@@ -16,6 +16,9 @@
                 <img class="logo" src="{% static 'posts/assets/logo.svg' %}"
                      alt="Logo">
             </a>
+        </li>
+        <li>
+            <a href="{% url 'dark_mode' %}">Dark mode</a>
         </li>
     </ul>
 </nav>
