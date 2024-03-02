@@ -3,8 +3,7 @@ from .models import Post
 from django.db.models.functions import Substr
 from django.db.models import Value as V
 from django.db.models.functions import Concat
-from posts.forms import CommentForm
-from posts.forms import PostForm
+from posts.forms import CommentForm, PostForm, SignUpForm
 
 
 def post_list(request):
@@ -59,3 +58,30 @@ def dark_mode(request):
     else:
         request.session['dark_mode'] = True
     return redirect(request.META.get('HTTP_REFERER', 'post_list'))
+
+
+def post_edit(request, pk):
+    """Edit a post."""
+    post = get_object_or_404(Post, pk=pk)
+    if request.user != post.author:
+        return redirect('post_detail', pk=pk)
+    if request.method == "POST":
+        form = PostForm(request.POST, instance=post)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.save()
+            return redirect('post_detail', pk=post.pk)
+    else:
+        form = PostForm(instance=post)
+    return render(request, 'posts/post_edit.html', {'form': form})
+
+
+def signup(request):
+    if request.method == 'POST':
+        form = SignUpForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('login')
+    else:
+        form = SignUpForm()
+    return render(request, 'registration/signup.html', {'form': form})

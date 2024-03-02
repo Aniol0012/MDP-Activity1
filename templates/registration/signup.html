@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Signup</title>
+    <style>
+      ul.errorlist {
+        margin-left: 5%;
+      }
+    </style>
+  </head>
+  <body>
+    {% extends "base.html" %} {% block content %}
+    <h2 style="margin-left: 5%">Sign up</h2>
+    <form method="post">
+      {% csrf_token %} {{ form.as_p }}
+      <button type="submit" class="btn" style="margin-left: 5%">Sign up</button>
+    </form>
+    {% endblock %}
+  </body>
+</html>

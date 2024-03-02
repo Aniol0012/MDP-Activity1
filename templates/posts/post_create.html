@@ -3,11 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <title>Create post</title>
+    <style>
+      .center-form {
+        position: relative;
+        padding: 50px;
+      }
+      .fixed-title {
+        position: absolute;
+        top: 0;
+        left: 540px;
+      }
+    </style>
   </head>
   <body>
     {% extends 'base.html' %} {% block content %}
-    <h2 style="margin-left: 24.5%">New post</h2>
-    <div class="center-form">
+    <div class="center-form" style="padding: 50px">
+      <h2 class="fixed-title">New post</h2>
       <form method="POST">
         {% csrf_token %} {{ form.as_p }}
         <button class="comment-btn" type="submit">Create</button>

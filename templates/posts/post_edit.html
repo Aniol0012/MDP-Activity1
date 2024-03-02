@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Edit post</title>
+  </head>
+  <body>
+    {% extends 'base.html' %} {% block content %}
+    <div class="center-form">
+      <form method="POST">
+        {% csrf_token %} {{ form.as_p }}
+        <button class="comment-btn" type="submit">Edit</button>
+      </form>
+    </div>
+    {% endblock %}
+  </body>
+</html>
