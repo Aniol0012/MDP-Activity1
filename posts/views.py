@@ -8,12 +8,14 @@ from posts.forms import PostForm
 
 
 def post_list(request):
+    """Show the list of posts."""
     posts = Post.objects.all().annotate(short_content=Concat(
         Substr('content', 1, 200), V('...')))
     return render(request, 'posts/posts_list.html', {'posts': posts})
 
 
 def post_detail(request, pk):
+    """Show the details of a post."""
     post = get_object_or_404(Post, pk=pk)
     order = request.GET.get('order', 'desc')
     comments = post.comment_set.all().order_by(
@@ -35,6 +37,9 @@ def post_detail(request, pk):
 
 
 def post_create(request):
+    """Create a new post."""
+    if not request.user.is_authenticated:
+        return redirect('login')
     if request.method == "POST":
         form = PostForm(request.POST)
         if form.is_valid():
