@@ -424,6 +424,11 @@
         transform: translateY(100%);
       }
     }
+    
+    .top-link {
+        font-weight: bold;
+        position: absolute;
+    }
   </style>
   {% load static %}
   <body
@@ -431,7 +436,7 @@
   >
     <nav>
       <ul>
-        <li><a href="{% url 'posts_list' %}">Home</a></li>
+        <li><a href="{% url 'posts_list' %}"style="font-weight: bold">Home</a></li>
         <li>
           <a>
             <img
@@ -442,22 +447,22 @@
           </a>
         </li>
         <li>
-          <a href="{% url 'dark_mode' %}">Dark mode</a>
+          <a href="{% url 'dark_mode' %}" class="top-link">Dark mode</a>
         </li>
         {% if not user.is_authenticated %}
         <li>
-          <a href="{% url 'login' %}" style="position: absolute; right: 12%"
+          <a href="{% url 'login' %}" class="top-link" style="right: 12%"
             >Login</a
           >
         </li>
         <li>
-          <a href="{% url 'signup' %}" style="position: absolute; right: 6%"
+          <a href="{% url 'signup' %}" class="top-link" style="right: 6%"
             >Sign up</a
           >
         </li>
         {% else %}
         <li>
-          <a href="{% url 'logout' %}" style="position: absolute; right: 12%"
+          <a href="{% url 'logout' %}" class="top-link" style="right: 8%"
             >Logout</a
           >
         </li>
