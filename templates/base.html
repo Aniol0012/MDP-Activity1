@@ -444,6 +444,7 @@
         <li>
           <a href="{% url 'dark_mode' %}">Dark mode</a>
         </li>
+        {% if not user.is_authenticated %}
         <li>
           <a href="{% url 'login' %}" style="position: absolute; right: 12%"
             >Login</a
@@ -454,6 +455,13 @@
             >Sign up</a
           >
         </li>
+        {% else %}
+        <li>
+          <a href="{% url 'logout' %}" style="position: absolute; right: 12%"
+            >Logout</a
+          >
+        </li>
+        {% endif %}
       </ul>
     </nav>
     {% block content %} {% endblock %}
