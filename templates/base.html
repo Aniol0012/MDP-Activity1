@@ -436,7 +436,7 @@
   >
     <nav>
       <ul>
-        <li><a href="{% url 'posts_list' %}"style="font-weight: bold">Home</a></li>
+        <li><a href="{% url 'posts_list' %}" style="font-weight: bold">Home</a></li>
         <li>
           <a>
             <img
@@ -446,9 +446,16 @@
             />
           </a>
         </li>
-        <li>
-          <a href="{% url 'dark_mode' %}" class="top-link">Dark mode</a>
-        </li>
+        {% if 'dark_mode' in request.session %}
+            <li>
+              <a href="{% url 'dark_mode' %}" class="top-link">Light mode</a>
+            </li>
+        {% else %}
+            <li>
+              <a href="{% url 'dark_mode' %}" class="top-link">Dark mode</a>
+            </li>
+        {% endif %}
+      
         {% if not user.is_authenticated %}
         <li>
           <a href="{% url 'login' %}" class="top-link" style="right: 12%"
