@@ -23,7 +23,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = ('django-insecure-%dhpuf4pnfyeob#'
               'cjdrt_3x+=(vt31t7d$+x&6k*1^wapcm4dc')
 
-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -129,3 +128,11 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL = '/'
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_HOST = 'stmp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+# In this case this is not working since the email is not real
+EMAIL_HOST_USER = 'real-person-email@gmail.com'
+EMAIL_HOST_PASSWORD = 'password'
