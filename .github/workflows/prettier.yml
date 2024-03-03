@@ -2,7 +2,7 @@ name: Prettify Code
 
 on:
   pull_request:
-    branches: [main]
+    branches: [ main ]
 
 jobs:
   prettify:
@@ -22,15 +22,3 @@ jobs:
 
       - name: Run Prettier
         run: npx prettier --write .
-
-      - name: Commit changes
-        run: |
-          git config --global user.name 'github-actions'
-          git config --global user.email 'github-actions@github.com'
-          git commit -am "style: prettify code" || true
-
-      - name: Push changes
-        uses: ad-m/github-push-action@v0.6.0
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ github.head_ref }}
