@@ -33,6 +33,13 @@
         style="font-weight: normal; margin-left: -20%"
         >Create new post</a
       >
+      {% else %}
+      <a
+        href="{% url 'login' %}"
+        class="create-btn"
+        style="font-weight: normal; margin-left: -20%"
+        >Create new post</a
+      >
       {% endif %}
     </h1>
     {% for post in posts %}
