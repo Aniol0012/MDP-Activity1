@@ -11,7 +11,7 @@
     <p class="detail-post">
       <strong>Created at:</strong> {{ post.created_at }}
     </p>
-    {% if user == post.author %}
+    {% if user == post.author or request.user.is_superuser == True %}
     <a href="{% url 'post_edit' post.id %}" class="btn" style="margin-left: 15%"
       >Edit post</a
     >
@@ -60,6 +60,8 @@
       <p style="color: gray">Commented at: {{ comment.created_at }}</p>
       {% endif %}
     </div>
-    {% endfor %} {% endblock %}
+    {% endfor %} {% if messages %} {% for message in messages %}
+    <p class="notification notification-success">{{ message }}</p>
+    {% endfor %} {% endif %} {% endblock %}
   </body>
 </html>

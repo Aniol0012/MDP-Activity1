@@ -50,7 +50,11 @@
       </p>
     </a>
     {% empty %}
-    <p>No posts yet.</p>
-    {% endfor %} {% endblock %}
+    <p class="post">There are no posts yet.</p>
+    {% endfor %} 
+    {% if messages %} {% for message in messages %}
+    <p class="notification notification-success">{{ message }}</p>
+    {% endfor %} {% endif %}
+    {% endblock %}
   </body>
 </html>

@@ -9,6 +9,14 @@
     <h2 style="text-align: center; margin-left: -18%">
       <a href="{% url 'post_detail' post.id %}">Go back to post</a>
     </h2>
+    {% if request.user == post.author or request.user.is_superuser %}
+    <form method="POST" action="{% url 'post_delete' post.pk %}">
+      {% csrf_token %}
+      <button type="submit" class="btn" style="margin-left: 30%">
+        Delete post
+      </button>
+    </form>
+    {% endif %}
     <div class="center-form">
       <form method="POST">
         {% csrf_token %} {{ form.as_p }}
