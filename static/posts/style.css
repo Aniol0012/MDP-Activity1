@@ -406,6 +406,7 @@ td {
 .notification-success {
   border: 2px solid #088508;
   background-color: rgba(107, 208, 107, 0.5);
+  animation: fadeOut 3s forwards;
 }
 
 .notification-info {

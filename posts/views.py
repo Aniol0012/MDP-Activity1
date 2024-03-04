@@ -91,7 +91,10 @@ def post_delete(request, pk):
     post = get_object_or_404(Post, pk=pk)
     if (request.user == post.author) or request.user.is_superuser:
         post.delete()
-        messages.success(request, 'Post deleted successfully!')
+        if request.user.is_superuser:
+            messages.info(request, "Post id " + str(pk) + " has been deleted.")
+        else:
+            messages.info(request, "Post has been deleted.")
         return redirect('posts_list')
     else:
         messages.error(request,
