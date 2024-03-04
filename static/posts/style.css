@@ -28,7 +28,7 @@
   --input-padding-y: 0.75rem;
   --input-padding-x: 1.5rem;
   --input-font-size: 1rem;
-  --input-border-radius: 0.25rem;
+  --input-border-radius: 5px;
   --input-border-color: #ced4da;
   --input-border-color-focus: #80bdff;
   --input-box-shadow-focus: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
@@ -121,7 +121,7 @@ p {
   border: 1px solid #7c7575;
   /*margin-bottom: 20px;*/
   padding: 20px;
-  border-radius: 5px;
+  border-radius: var(--input-border-radius);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   max-width: 800px;
   margin-left: 25%;
@@ -163,14 +163,14 @@ p {
 }
 
 #detail-post-content {
-  border-radius: 5px;
+  border-radius: var(--input-border-radius);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   padding: 20px;
   background-color: #ffffff;
 }
 
 .comment {
-  border-radius: 5px;
+  border-radius: var(--input-border-radius);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   padding: 5px;
   max-width: 700px;
@@ -427,3 +427,16 @@ td {
   font-weight: bold;
   position: absolute;
 }
+
+.content-style {
+    width: 200%;
+    height: 300px;
+    border: 2px solid rgba(196, 194, 194, 0.5);
+    border-radius: var(--btn-border-radius);
+}
+
+.comment-input {
+  border: 2px solid rgba(196, 194, 194, 0.5);
+  border-radius: var(--btn-border-radius);
+}
+
