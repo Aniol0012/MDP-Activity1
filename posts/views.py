@@ -88,7 +88,7 @@ def post_edit(request, pk):
 def post_delete(request, pk):
     """Delete a post."""
     post = get_object_or_404(Post, pk=pk)
-    if (request.user == post.author) or (request.user.is_superuser == True):
+    if (request.user == post.author) or request.user.is_superuser:
         post.delete()
         messages.success(request, 'Post deleted successfully!')
         return redirect('posts_list')

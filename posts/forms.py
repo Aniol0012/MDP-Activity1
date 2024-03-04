@@ -6,9 +6,10 @@ from django.contrib.auth.forms import UserCreationForm
 
 class CommentForm(forms.ModelForm):
     """Form to create a new comment."""
-    content = forms.CharField(widget=forms.Textarea(attrs={'class': 'comment-input'}),
-                              label='Comment content'
-                              )
+    content = forms.CharField(widget=forms.Textarea(
+        attrs={'class': 'comment-input'}),
+        label='Comment content'
+    )
 
     class Meta:
         model = Comment

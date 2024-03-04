@@ -5,11 +5,11 @@
     <title>Edit post</title>
   </head>
   <style>
-      #delete-btn:hover {
-          margin-left: 30%;
-          background-color: red;
-          color: white;
-        }
+    #delete-btn:hover {
+      margin-left: 30%;
+      background-color: red;
+      color: white;
+    }
   </style>
   <body>
     {% extends 'base.html' %} {% block content %}
@@ -19,7 +19,12 @@
     {% if request.user == post.author or request.user.is_superuser %}
     <form method="POST" action="{% url 'post_delete' post.pk %}">
       {% csrf_token %}
-      <button type="submit" class="btn" style="margin-left: 30%" id="delete-btn">
+      <button
+        type="submit"
+        class="btn"
+        style="margin-left: 30%"
+        id="delete-btn"
+      >
         Delete post
       </button>
     </form>
