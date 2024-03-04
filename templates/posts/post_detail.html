@@ -60,6 +60,12 @@
       <p style="color: gray">Commented at: {{ comment.created_at }}</p>
       {% endif %}
     </div>
-    {% endfor %} {% endblock %}
+    {% endfor %} 
+    {%  if messages %}
+            {%  for message in messages %}
+                <p class="notification notification-success">{{ message }}</p>
+            {%  endfor %}
+        {%  endif %}
+    {% endblock %}
   </body>
 </html>

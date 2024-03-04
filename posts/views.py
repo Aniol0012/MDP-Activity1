@@ -4,6 +4,7 @@ from django.db.models.functions import Substr
 from django.db.models import Value as V
 from django.db.models.functions import Concat
 from posts.forms import CommentForm, PostForm, SignUpForm
+from django.contrib import messages
 
 
 def post_list(request):
@@ -49,6 +50,7 @@ def post_create(request):
             post = form.save(commit=False)
             post.author = request.user
             post.save()
+            messages.success(request, 'Post created successfully!')
             return redirect('post_detail', pk=post.pk)
     else:
         form = PostForm()
