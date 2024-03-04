@@ -11,7 +11,7 @@
     <p class="detail-post">
       <strong>Created at:</strong> {{ post.created_at }}
     </p>
-    {% if user == post.author %}
+    {% if user == post.author or request.user.is_superuser == True %}
     <a href="{% url 'post_edit' post.id %}" class="btn" style="margin-left: 15%"
       >Edit post</a
     >
