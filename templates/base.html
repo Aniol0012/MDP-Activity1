@@ -1,61 +1,61 @@
 <!doctype html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
+<head>
+    <meta charset="UTF-8"/>
     <title>{% block title %}{% endblock %}Posts</title>
-  </head>
-  {% load static %}
-  <link
-    rel="stylesheet"
-    type="text/css"
-    href="{% static 'posts/style.css' %}"
-  />
-  {% load static %}
-  <body
-    class="{% if 'dark_mode' in request.session %}dark-mode{% else %}light-mode{% endif %}"
-  >
-    <nav>
-      <ul>
+</head>
+{% load static %}
+<link
+        rel="stylesheet"
+        type="text/css"
+        href="{% static 'posts/style.css' %}"
+/>
+{% load static %}
+<body
+        class="{% if 'dark_mode' in request.session %}dark-mode{% else %}light-mode{% endif %}"
+>
+<nav>
+    <ul>
         <li>
-          <a href="{% url 'posts_list' %}" style="font-weight: bold">Home</a>
+            <a href="{% url 'posts_list' %}" style="font-weight: bold">Home</a>
         </li>
         <li>
-          <a>
-            <img
-              class="logo"
-              src="{% static 'posts/assets/logo.svg' %}"
-              alt="Logo"
-            />
-          </a>
+            <a>
+                <img
+                        class="logo"
+                        src="{% static 'posts/assets/logo.svg' %}"
+                        alt="Logo"
+                />
+            </a>
         </li>
         {% if 'dark_mode' in request.session %}
-        <li>
-          <a href="{% url 'dark_mode' %}" class="top-link">Light mode</a>
-        </li>
+            <li>
+                <a href="{% url 'dark_mode' %}" class="top-link">Light mode</a>
+            </li>
         {% else %}
-        <li>
-          <a href="{% url 'dark_mode' %}" class="top-link">Dark mode</a>
-        </li>
+            <li>
+                <a href="{% url 'dark_mode' %}" class="top-link">Dark mode</a>
+            </li>
         {% endif %} {% if not user.is_authenticated %}
         <li>
-          <a href="{% url 'login' %}" class="top-link" style="right: 12%"
+            <a href="{% url 'login' %}" class="top-link" style="right: 12%"
             >Login</a
-          >
+            >
         </li>
         <li>
-          <a href="{% url 'signup' %}" class="top-link" style="right: 6%"
+            <a href="{% url 'signup' %}" class="top-link" style="right: 6%"
             >Sign up</a
-          >
+            >
         </li>
-        {% else %}
+    {% else %}
         <li>
-          <a href="{% url 'logout' %}" class="top-link" style="right: 8%"
+            <a href="{% url 'logout' %}" class="top-link" style="right: 8%"
             >Logout</a
-          >
+            >
         </li>
-        {% endif %}
-      </ul>
-    </nav>
-    {% block content %} {% endblock %}
-  </body>
+    {% endif %}
+    </ul>
+</nav>
+{% block content %} {% endblock %}
+</body>
 </html>

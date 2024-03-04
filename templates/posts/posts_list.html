@@ -1,61 +1,61 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
+<head>
+    <meta charset="UTF-8"/>
     <title>Aniol's Blog</title>
     <style>
-      .create-btn {
-        background-color: #007bff;
-        color: white;
-        border: none;
-        padding: 10px 20px;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 16px;
-        text-decoration: none;
-        display: inline-block;
-        transition: color 0.3s ease;
-      }
+        .create-btn {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            text-decoration: none;
+            display: inline-block;
+            transition: color 0.3s ease;
+        }
 
-      .create-btn:hover {
-        color: #ffd700;
-        text-decoration: none;
-      }
+        .create-btn:hover {
+            color: #ffd700;
+            text-decoration: none;
+        }
     </style>
-  </head>
-  <body>
-    {% extends "base.html" %} {% block content %}
+</head>
+<body>
+{% extends "base.html" %} {% block content %}
     <h1>
-      Posts {% if user.is_authenticated %}
-      <a
-        href="{% url 'post_create' %}"
-        class="create-btn"
-        style="font-weight: normal; margin-left: -20%"
+        Posts {% if user.is_authenticated %}
+        <a
+                href="{% url 'post_create' %}"
+                class="create-btn"
+                style="font-weight: normal; margin-left: -20%"
         >Create new post</a
-      >
-      {% else %}
-      <a
-        href="{% url 'login' %}"
-        class="create-btn"
-        style="font-weight: normal; margin-left: -20%"
+        >
+    {% else %}
+        <a
+                href="{% url 'login' %}"
+                class="create-btn"
+                style="font-weight: normal; margin-left: -20%"
         >Create new post</a
-      >
-      {% endif %}
+        >
+    {% endif %}
     </h1>
     {% for post in posts %}
-    <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
-    <a href="{% url 'post_detail' pk=post.pk %}">
-      <p class="post" style="background-color: white; color: #3d3d3d">
-        {{ post.content_html|safe|truncatewords:70}}
-      </p>
-    </a>
+        <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
+        <a href="{% url 'post_detail' pk=post.pk %}">
+            <p class="post" style="background-color: white; color: #3d3d3d">
+                {{ post.content_html|safe|truncatewords:70 }}
+            </p>
+        </a>
     {% empty %}
-    <p class="post">There are no posts yet.</p>
-    {% endfor %} {% if messages %} {% for message in messages %} {% if
-    message.tags == 'error' %}
-    <p class="notification">{{ message }}</p>
-    {% else %}
-    <p class="notification notification-success">{{ message }}</p>
-    {% endif %} {% endfor %} {% endif %} {% endblock %}
-  </body>
+        <p class="post">There are no posts yet.</p>
+    {% endfor %} {% if messages %} {% for message in messages %}
+        {% if message.tags == 'error' %}
+            <p class="notification">{{ message }}</p>
+        {% else %}
+            <p class="notification notification-success">{{ message }}</p>
+        {% endif %} {% endfor %} {% endif %} {% endblock %}
+</body>
 </html>

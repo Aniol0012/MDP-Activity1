@@ -1,28 +1,28 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
+<head>
+    <meta charset="UTF-8"/>
     <title>Signup</title>
     <style>
-      ul.errorlist {
-        margin-left: 5%;
-      }
+        ul.errorlist {
+            margin-left: 5%;
+        }
     </style>
-  </head>
-  <body>
-    {% extends "base.html" %} {% block content %}
+</head>
+<body>
+{% extends "base.html" %} {% block content %}
     <h2 style="text-align: center; margin-left: 15%">Sign up</h2>
     <form style="max-width: 500px; margin: auto" method="post">
-      {% csrf_token %} {{ form.as_p }} {% if form.errors %}
-      <p class="notification" style="text-align: center">
-        There it was an error <br />please, check the form and try again
-      </p>
-      {% endif %}
-      <p style="margin-left: 5%">
-        Already have an account? <a href="{% url 'login' %}">Log in</a>
-      </p>
-      <button type="submit" class="btn" style="margin-left: 5%">Sign up</button>
+        {% csrf_token %} {{ form.as_p }} {% if form.errors %}
+        <p class="notification" style="text-align: center">
+            There it was an error <br/>please, check the form and try again
+        </p>
+    {% endif %}
+        <p style="margin-left: 5%">
+            Already have an account? <a href="{% url 'login' %}">Log in</a>
+        </p>
+        <button type="submit" class="btn" style="margin-left: 5%">Sign up</button>
     </form>
-    {% endblock %}
-  </body>
+{% endblock %}
+</body>
 </html>

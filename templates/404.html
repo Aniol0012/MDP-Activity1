@@ -1,49 +1,51 @@
 <!doctype html>
 <html>
-  <head>
+<head>
     <title>Page not found</title>
     <style>
-      body {
-        background: #dedede;
-      }
-      .page-wrap {
-        min-height: 50vh;
-      }
+        body {
+            background: #dedede;
+        }
+
+        .page-wrap {
+            min-height: 50vh;
+        }
     </style>
-  </head>
-  <body>
-    {% extends "base.html" %} {% block content %}
+</head>
+<body>
+{% extends "base.html" %} {% block content %}
     <style>
-      nav {
-        padding: 18px 15px;
-      }
-      body {
-        background-color: #f1f1f1;
-      }
+        nav {
+            padding: 18px 15px;
+        }
+
+        body {
+            background-color: #f1f1f1;
+        }
     </style>
     <link
-      href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
-      rel="stylesheet"
-      id="bootstrap-css"
+            href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+            rel="stylesheet"
+            id="bootstrap-css"
     />
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     <div class="page-wrap d-flex flex-row align-items-center">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-md-12 text-center">
-            <span class="display-1 d-block">404</span>
-            <div class="mb-4 lead">
-              The page you are looking for was not found.
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-12 text-center">
+                    <span class="display-1 d-block">404</span>
+                    <div class="mb-4 lead">
+                        The page you are looking for was not found.
+                    </div>
+                    <a href="{% url 'posts_list' %}" class="btn btn-link"
+                    >Back to Home</a
+                    >
+                </div>
             </div>
-            <a href="{%  url 'posts_list' %}" class="btn btn-link"
-              >Back to Home</a
-            >
-          </div>
         </div>
-      </div>
     </div>
-    {% endblock %}
-  </body>
+{% endblock %}
+</body>
 </html>
