@@ -5,7 +5,6 @@ from django.db.models import Value as V
 from django.db.models.functions import Concat
 from posts.forms import CommentForm, PostForm, SignUpForm
 from django.contrib import messages
-from django.core.exceptions import PermissionDenied
 
 
 def post_list(request):
@@ -70,19 +69,21 @@ def dark_mode(request):
 def post_edit(request, pk):
     """Edit a post."""
     post = get_object_or_404(Post, pk=pk)
-    if request.user != post.author and not request.user.is_superuser:
-        return redirect('post_detail', pk=pk)
-    if request.method == "POST":
-        form = PostForm(request.POST, instance=post)
-        if form.is_valid():
-            post = form.save(commit=False)
-            post.author = request.user
-            post.save()
-            return redirect('post_detail', pk=post.pk)
+    if request.user == post.author or request.user.is_superuser:
+        if request.method == "POST":
+            form = PostForm(request.POST, instance=post)
+            if form.is_valid():
+                post = form.save(commit=False)
+                post.author = request.user
+                post.save()
+                return redirect('post_detail', pk=post.pk)
+        else:
+            form = PostForm(instance=post)
+        return render(request, 'posts/post_edit.html',
+                      {'form': form, 'post': post})
     else:
-        form = PostForm(instance=post)
-    return render(request, 'posts/post_edit.html',
-                  {'form': form, 'post': post})
+        messages.error(request, "You don't have permission to edit this post.")
+        return redirect('post_detail', pk=post.pk)
 
 
 def post_delete(request, pk):
@@ -93,7 +94,9 @@ def post_delete(request, pk):
         messages.success(request, 'Post deleted successfully!')
         return redirect('posts_list')
     else:
-        raise PermissionDenied
+        messages.error(request,
+                       "You don't have permission to delete this post.")
+        return redirect('post_detail', pk=post.pk)
 
 
 def signup(request):

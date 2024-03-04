@@ -60,8 +60,11 @@
       <p style="color: gray">Commented at: {{ comment.created_at }}</p>
       {% endif %}
     </div>
-    {% endfor %} {% if messages %} {% for message in messages %}
+    {% endfor %} {% if messages %} {% for message in messages %} {% if
+    message.tags == 'error' %}
+    <p class="notification">{{ message }}</p>
+    {% else %}
     <p class="notification notification-success">{{ message }}</p>
-    {% endfor %} {% endif %} {% endblock %}
+    {% endif %} {% endfor %} {% endif %} {% endblock %}
   </body>
 </html>
