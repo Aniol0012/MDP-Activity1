@@ -51,11 +51,18 @@
         </a>
     {% empty %}
         <p class="post">There are no posts yet.</p>
-    {% endfor %} {% if messages %} {% for message in messages %}
-        {% if message.tags == 'error' %}
-            <p class="notification">{{ message }}</p>
-        {% else %}
-            <p class="notification notification-success">{{ message }}</p>
-        {% endif %} {% endfor %} {% endif %} {% endblock %}
+    {% endfor %}
+    {% if messages %}
+        {% for message in messages %}
+            {% if message.tags == 'error' %}
+                <p class="notification">{{ message }}</p>
+            {% elif message.tags == 'success' %}
+                <p class="notification notification-success">{{ message }}</p>
+            {% else %}
+                <p class="notification notification-info">{{ message }}</p>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+{% endblock %}
 </body>
 </html>

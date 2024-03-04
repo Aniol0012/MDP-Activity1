@@ -408,6 +408,12 @@ td {
   background-color: rgba(107, 208, 107, 0.5);
 }
 
+.notification-info {
+    border: 2px solid #b6a708;
+    background-color: rgba(200, 206, 91, 0.5);
+    animation: fadeOut 3s forwards;
+}
+
 @keyframes fadeOut {
   0% {
     opacity: 1;

@@ -105,6 +105,7 @@ def signup(request):
         form = SignUpForm(request.POST)
         if form.is_valid():
             form.save()
+            messages.success(request, 'Account created successfully!')
             return redirect('login')
     else:
         form = SignUpForm()
@@ -116,5 +117,7 @@ def like_post(request, post_id):
     if not request.user.is_authenticated:
         return redirect('login')
     post = get_object_or_404(Post, pk=post_id)
-    post.like_set.get_or_create(user=request.user)
+    like, created = post.like_set.get_or_create(user=request.user)
+    if not created:
+        messages.info(request, 'You already liked this post.')
     return redirect(request.META.get('HTTP_REFERER', 'posts_list'))
