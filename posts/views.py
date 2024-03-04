@@ -70,7 +70,7 @@ def dark_mode(request):
 def post_edit(request, pk):
     """Edit a post."""
     post = get_object_or_404(Post, pk=pk)
-    if request.user != post.author:
+    if request.user != post.author and not request.user.is_superuser:
         return redirect('post_detail', pk=pk)
     if request.method == "POST":
         form = PostForm(request.POST, instance=post)
