@@ -5,7 +5,7 @@ from django.db.models import Value as V
 from django.db.models.functions import Concat
 from posts.forms import CommentForm, PostForm, SignUpForm
 from django.contrib import messages
-from django.http import HttpResponseForbidden
+from django.core.exceptions import PermissionDenied
 
 
 def post_list(request):
@@ -88,13 +88,12 @@ def post_edit(request, pk):
 def post_delete(request, pk):
     """Delete a post."""
     post = get_object_or_404(Post, pk=pk)
-    if request.user == post.author or request.user.is_superuser:
+    if (request.user == post.author) or (request.user.is_superuser == True):
         post.delete()
         messages.success(request, 'Post deleted successfully!')
         return redirect('posts_list')
     else:
-        return HttpResponseForbidden("You don't have permission "
-                                     "to delete this post.")
+        raise PermissionDenied
 
 
 def signup(request):
