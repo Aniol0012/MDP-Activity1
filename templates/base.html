@@ -5,7 +5,11 @@
     <title>{% block title %}{% endblock %}Posts</title>
   </head>
   {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'posts/style.css' %}">
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="{% static 'posts/style.css' %}"
+  />
   {% load static %}
   <body
     class="{% if 'dark_mode' in request.session %}dark-mode{% else %}light-mode{% endif %}"
